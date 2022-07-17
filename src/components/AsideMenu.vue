@@ -16,7 +16,35 @@
         <va-icon name="add" />
       </div>
     </div>
-    <div>list</div>
+    <div>
+      <div class="channel-list">
+        <h2>빠른 탐색</h2>
+        <va-list>
+          <va-list-item
+            v-for="(menu, index) in quickMenus"
+            :key="`channel-${index}`"
+          >
+            <va-list-item-section>
+              # {{menu.name}}
+            </va-list-item-section>
+          </va-list-item>
+        </va-list>
+      </div>
+      <div class="channel-list">
+        <h2>channel</h2>
+        <va-list>
+          <va-list-item
+            v-for="(channel, index) in channels"
+            :key="`channel-${index}`"
+          >
+            <va-list-item-section>
+              # {{channel.name}}
+            </va-list-item-section>
+          </va-list-item>
+        </va-list>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -31,29 +59,15 @@ const workspaces = ref([{
   active: true,
 },
 {
-  id: 'id-dd',
+  id: 'id-dds',
   name: 'The Dotio',
   thumbnailUrl: 'https://images.unsplash.com/photo-1657989910099-476bd0c8c156?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
   notification: 3,
 }]);
-// export default defineComponent({
-//   name: 'AsideMenu',
-//   data: () => ({
-//     workspaces: [
-//       {
-//         id: 'id-dd',
-//         name: 'The Dotio',
-//         thumbnailUrl: 'https://images.unsplash.com/photo-1657989910099-476bd0c8c156?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
-//         active: true,
-//       },
-//       {
-//         id: 'id-dd',
-//         name: 'The Dotio',
-//         thumbnailUrl: 'https://images.unsplash.com/photo-1657989910099-476bd0c8c156?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80',
-//       },
-//     ],
-//   }),
-// });
+const channels = ref([
+  { id: 'test', name: 'test', isPrivate: false },
+]);
+const quickMenus = ref([]);
 </script>
 
 <style scoped lang="scss">
@@ -63,8 +77,8 @@ const workspaces = ref([{
 }
 
 #workspaces-root {
-  padding:14px;
-  height:calc(100vh - 58px);
+  padding:14px 8px;
+  height:calc(100vh - 48px);
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -90,6 +104,16 @@ const workspaces = ref([{
     align-items: center;
     color:#ddd;
     cursor:pointer;
+  }
+}
+
+.channel-list {
+  width:100%;
+
+  h2 {
+    font-size:12px;
+    padding:12px 0 0 12px;
+    margin:0;
   }
 }
 </style>

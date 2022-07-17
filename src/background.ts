@@ -26,6 +26,7 @@ async function createWindow() {
         .ELECTRON_NODE_INTEGRATION as unknown) as boolean,
       contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
     },
+    titleBarStyle: 'hidden',
   });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {

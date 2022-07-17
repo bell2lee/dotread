@@ -3,8 +3,8 @@ import { createVuestic } from 'vuestic-ui';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import 'vuestic-ui/dist/vuestic-ui.css';
 import '@/styles/lite-theme.css';
+import 'vuestic-ui/dist/vuestic-ui.css';
 
 createApp(App)
   .use(store)
